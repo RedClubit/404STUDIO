@@ -1,13 +1,291 @@
+<!-- GOOGLE SITES READY — Apple Style Liquid Glass Layout -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Sito</title>
-    <link rel="stylesheet" href="style.css">
+    <title>404 STUDIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-blue: #0071e3;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --radius-card: 24px;
+            --radius-btn: 980px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Logo centrale (senza nav) */
+        .site-logo {
+            text-align: center;
+            padding: 1.5rem 0;
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1d1d1f 0%, #434344 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--radius-btn);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0077ed;
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-card);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-card {
+            max-width: 550px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .email-link {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* Riduzione padding per evitare scroll verticale in Google Sites */
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 1rem 2rem; }
+            .services-section { padding: 2rem 1rem; }
+            .contact-section { padding: 3rem 1rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Benvenuto nel mio sito!</h1>
-    <p>Creato con GitHub Pages</p>
+
+    <!-- Logo centrato -->
+    <div class="site-logo">404 STUDIO</div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Innovazione digitale,<br>design senza confini.</h1>
+        <p>Soluzioni di marketing, grafica e sviluppo web che ridefiniscono l'esperienza del tuo brand.</p>
+        <a href="mailto:BUSINESS.404STUDIO@OUTLOOK.IT" class="btn-primary">Inizia un progetto</a>
+    </section>
+
+    <!-- Servizi -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2>I nostri servizi.</h2>
+            <p style="color: var(--text-secondary);">Tutto ciò di cui hai bisogno per crescere online.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Social Media Marketing</h3>
+                <p>Strategie data-driven per aumentare la tua presenza online e connetterti con il tuo pubblico target in modo autentico.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Grafica & Locandine</h3>
+                <p>Design visivo curato nei minimi dettagli. Dalla branding identity alle locandine eventi, creiamo impatto visivo immediato.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Sviluppo Siti Web</h3>
+                <p>Piattaforme web veloci, sicure e responsive. Esperienze utente fluide progettate per convertire visitatori in clienti.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🍽️</div>
+                <h3>Menu Digitali</h3>
+                <p>La rivoluzione della ristorazione. Menu interattivi accessibili via QR code, facili da aggiornare e perfettamente integrati.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📢</div>
+                <h3>Pubblicità Online</h3>
+                <p>Campagne PPC e social ads ottimizzate per massimizzare il ROI. Portiamo traffico qualificato direttamente al tuo business.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">✨</div>
+                <h3>Consulenza Strategica</h3>
+                <p>Analisi approfondita e roadmap personalizzate per posizionare il tuo brand come leader nel tuo settore di riferimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti -->
+    <section class="contact-section">
+        <div class="contact-card">
+            <h2>Parliamo del tuo prossimo progetto.</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Siamo pronti ad ascoltare le tue idee e trasformarle in realtà.</p>
+            <a href="mailto:BUSINESS.404STUDIO@OUTLOOK.IT" class="email-link">BUSINESS.404STUDIO@OUTLOOK.IT</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 404 Group 2026/2027. Tutti i diritti riservati.</p>
+    </footer>
+
 </body>
 </html>
